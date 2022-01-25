@@ -48,9 +48,16 @@ def encrypt(string): #encrypts a string using a custom irreversible cipher to be
     for i in range(len(string)):
         character = string[i]
         characterId = ord(character)
-        encryptedId = ((i+1)*characterId) % 26 + 65
+        encryptedId = ((len(string) + i) * characterId) % 93 + 33
         encrypted = chr(encryptedId)
         encryptedString += encrypted
+        
+        addChar = characterId % 2 > 0
+        if addChar:
+            addedEncryptedId = ((len(string) * i) * characterId) % 93 + 33
+            addedEncrypted = chr(addedEncryptedId)
+            encryptedString += addedEncrypted
+            
     return encryptedString
 
 
