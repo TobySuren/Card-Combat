@@ -457,8 +457,11 @@ def playGame(cardsPerPlayer = 5, player1User = "", player2User = ""): #plays the
             if player1Choice != "":
                 try:
                     player1Choice = int(player1Choice)
-                    if player1Choice <= len(player1Deck):
+                    if player1Choice <= len(player1Deck) and player1Choice > 0:
                         loop = False
+                    elif player1Choice <= 0:
+                        print("Please enter a number higher than 0.")
+                        player1Choice = input("Please pick a card by entering its number from left to right:\n")
                     else:
                         print("You do not have " + str(player1Choice) + " cards.")
                         player1Choice = input("Please pick a card by entering its number from left to right:\n")
@@ -475,8 +478,11 @@ def playGame(cardsPerPlayer = 5, player1User = "", player2User = ""): #plays the
             if player2Choice != "":
                 try:
                     player2Choice = int(player2Choice)
-                    if player2Choice <= len(player2Deck):
+                    if player2Choice <= len(player2Deck) and player2Choice > 0:
                         loop = False
+                    elif player2Choice <= 0:
+                        print("Please enter a number higher than 0.")
+                        player2Choice = input("Please pick a card by entering its number from left to right:\n")
                     else:
                         print("You do not have " + str(player2Choice) + " cards.")
                         player2Choice = input("Please pick a card by entering its number from left to right:\n")
